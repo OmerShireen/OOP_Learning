@@ -41,6 +41,15 @@ def __mul__(self, other):
     num = self.numerator * other.numerator 
     den = self.denominator * other.denominator
     return Rational(num, den)
-        
+
+
+def __truediv__(self, other):
+    if not isinstance(other, Rational):
+        return NotImplemented
+    if denominator == 0:
+        raise ZeroDivisionError("Cannot divide by zero")
+    num = self.numerator * self.denominator
+    den = self.denominator * other.numerator 
+    return Rational(num, den)                
 
 
