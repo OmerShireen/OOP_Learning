@@ -55,6 +55,10 @@ def __truediv__(self, other):
 def __eq__(self, other):
     if not isinstance(other, Rational):
         return NotImplemented
-    return self.numerator == other.numerator and self.denominator == other.denominator                     
+    return self.numerator == other.numerator and self.denominator == other.denominator       
+
+def __float__(self):
+    return self.numerator / self.denominator
+                      
 
 
