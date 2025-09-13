@@ -50,6 +50,11 @@ def __truediv__(self, other):
         raise ZeroDivisionError("Cannot divide by zero")
     num = self.numerator * self.denominator
     den = self.denominator * other.numerator 
-    return Rational(num, den)                
+    return Rational(num, den)    
+
+def __eq__(self, other):
+    if not isinstance(other, Rational):
+        return NotImplemented
+    return self.numerator == other.numerator and self.denominator == other.denominator                     
 
 
