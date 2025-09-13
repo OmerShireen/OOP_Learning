@@ -59,6 +59,10 @@ def __eq__(self, other):
 
 def __float__(self):
     return self.numerator / self.denominator
-                      
+
+def __str__(self):
+    if denominator == 1:
+        return f"{self.numerator}"
+    return f"{self.numerator}/{self.denominator}"                          
 
 
