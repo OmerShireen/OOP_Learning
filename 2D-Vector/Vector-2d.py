@@ -24,5 +24,17 @@ class Vector2D:
         return f"Vector2D({self.x},{self.y})"
 
     def __str__(self):
-        return f"({self.x}, {self.y})"    
+        return f"({self.x}, {self.y})"  
+
+    def __add__(self, other):
+        if not isinstance(other, Vector2D):
+            return NotImplemented
+        return Vector2D(self.x + other.x, self.y + other.y)
+
+    def __sub__(self, other):
+        if not isinstance(other, Vector2D):
+            return NotImplemented
+        return Vector2D(self.x - other.x, self.y - other.y)
+
+                      
 
