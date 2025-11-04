@@ -52,5 +52,34 @@ class Vector2D:
             raise ZeroDivisionError("division by zero")
         return Vector2D(self.x / scalar, self.y / scalar)
 
-                                             
+    def __abs__(self):
+        return math.hypot(self.x, self.y)
+
+    def dot (self, other):
+        if not isinstance(other, Vector2D):
+            raise TypeError("dot product requires another Vector2D")
+        return self.x * other.x + self.y * other.y
+
+    def to_tuple(self):
+        return (self.x, self.y)
+
+    def normalize(self):
+        length = abs(self)
+        if length == 0:
+            raise ValueError("cannot normalize zerpo vector") 
+        return self / length
+
+    def rotate(self, theta):
+        """Return a new Vector2D rotated by theta radians (CCW)."""
+        cos_t = math.cos(theta)
+        sin_t = math.sin(theta)
+        x_new = self.x * cos_t - self.y * sin_t
+        y_new = self.x * sin_t + self.y * cos_t
+        return Vector2D(x_new, y_new)
+
+    def angle(self):
+        return math.atan2(self.y, self.x)
+         
+
+                                              
 
