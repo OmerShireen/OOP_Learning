@@ -1,3 +1,4 @@
+import math
 class Vector2D:
     def __init__(self, x, y):
         self._x = float(x)
@@ -36,5 +37,20 @@ class Vector2D:
             return NotImplemented
         return Vector2D(self.x - other.x, self.y - other.y)
 
-                      
+    def __mul__(self, scalar):
+        if isinstance(scalar,(int, float)):
+            return Vector2D(self.x * scalar, self.y * scalar)
+        return NotImplemented
+
+    def __rmul__(self, scalar):
+        return self.__mul__(scalar)
+
+    def __truediv__(self, scalar):
+        if not isinstance(scalar, (int, float)):
+            return NotImplemented
+        if scalar == 0:
+            raise ZeroDivisionError("division by zero")
+        return Vector2D(self.x / scalar, self.y / scalar)
+
+                                             
 
