@@ -68,7 +68,7 @@ class Vector:
         return result ** 0.5
 
     def __eq__(self, other):
-        if not isinstance(other, vector):
+        if not isinstance(other, Vector):
             return False
         if len(self) != len(other):
             return False
@@ -84,5 +84,5 @@ class Vector:
         return f"<{str(self._coords)[1:-1]}"
 
     def __repr__(self):
-        return f"Vector({self._coords!r})"    
+        return f"Vector({self._coords!r})"     
     
