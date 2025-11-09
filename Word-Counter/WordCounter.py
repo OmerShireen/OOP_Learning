@@ -8,9 +8,8 @@ class WordCounter:
             if word in self.counts:
                 self.counts[word] +=1
             else:
-                self.counts[words]
+                self.counts[word] = 1
 
     def display_counts(self):
         for word, count in self.counts.items():
             print(f"'{word}' appears {count} time(s)")
-                                
